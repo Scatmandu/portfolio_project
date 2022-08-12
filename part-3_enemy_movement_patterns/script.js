@@ -6,14 +6,6 @@ const numberOfEnemies = 10;
 enemiesArray = [];
 let gameFrame = 0;
 
-/**enemy1 = {
-  x: 0,
-  y: 0,
-  width: 200,
-  height: 200,
-}
-*/
-
 class Enemy {
   constructor(){
     this.image = new Image();

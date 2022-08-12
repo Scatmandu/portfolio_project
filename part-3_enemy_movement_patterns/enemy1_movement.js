@@ -6,19 +6,10 @@ const numberOfEnemies = 100;
 enemiesArray = [];
 let gameFrame = 0;
 
-/**enemy1 = {
-  x: 0,
-  y: 0,
-  width: 200,
-  height: 200,
-}
-*/
-
 class Enemy {
   constructor(){
     this.image = new Image();
     this.image.src = 'enemy1.png';
-    // this.speed = Math.random() * 4 - 2;
     // width of image in pixels divided by the number 
     // of frames in the animation ie. 1758 / 6 = 293
     this.spriteWidth = 293;
@@ -53,7 +44,7 @@ class Enemy {
     ctx.drawImage(this.image, this.frame * this.spriteWidth, 0, this.spriteWidth, this.spriteHeight, this.x, this.y, this.width, this.height);
   }
 };
-// const enemy1 = new Enemy();
+
 for (let i = 0; i < numberOfEnemies; i++){
   enemiesArray.push(new Enemy());
 }

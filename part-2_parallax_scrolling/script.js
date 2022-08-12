@@ -5,9 +5,8 @@ const CANVAS_HEIGHT = canvas.height = 700;
 // screen scrolling speed
 let gameSpeed = 10;
 
-// create html image element and save it in a variable
+// could make this less ugly lol
 const backgroundLayer1 = new Image();
-// populates img tag with content
 backgroundLayer1.src = 'layer-1.png';
 const backgroundLayer2 = new Image();
 backgroundLayer2.src = 'layer-2.png';
@@ -34,23 +33,20 @@ window.addEventListener('load', function(){
       this.y = 0;
       this.width = 2400;
       this.height = 700;
-      //   this.x2 = this.width;
       this.image = image;
       this.speedModifier = speedModifier;
       this.speed = gameSpeed * this.speedModifier;
     }
     update(){
       this.speed = gameSpeed * this.speedModifier;
+      // resets x position once -width is reached for seamless scrolling
       if (this.x <= -this.width){
         this.x = 0;
       }
-      //if (this.x2 <= -this.width){
-        //this.x2 = this.width + this.x - this.speed;
-      //}
       this.x = Math.floor(this.x - this.speed);
-      //this.x2 = Math.floor(this.x2 - this.speed);
     }
     draw(){
+      // need to draw two images for proper scrolling effect
       ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
       ctx.drawImage(this.image, this.x + this.width, this.y, this.width, this.height);
     }
@@ -70,11 +66,6 @@ window.addEventListener('load', function(){
       object.update();
       object.draw();
     })
-    // hardcoded layer animation
-    //layer4.update();
-    //layer4.draw();
-    //layer5.update();
-    //layer5.draw();
     requestAnimationFrame(animate);
   };
   animate();
